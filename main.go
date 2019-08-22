@@ -73,6 +73,6 @@ func run() error {
 func main() {
 	defer common.Cleanup()
 
-	common.New(&common.App{"templater", "1.0.0", "2018", "GO code generator by template", "mpetavy", common.APACHE, "https://github.com/mpetavy/symlink", false, nil,nil, nil, run, time.Duration(0)}, nil)
+	common.New(&common.App{"templater", "1.0.0", "2018", "GO code generator by template", "mpetavy", common.APACHE, "https://github.com/mpetavy/symlink", false, nil, nil, run, time.Duration(0)}, nil)
 	common.Run()
 }
