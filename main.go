@@ -3,13 +3,11 @@ package main
 import (
 	"bytes"
 	"flag"
+	"github.com/mpetavy/common"
 	"io/ioutil"
 	"os"
 	"strings"
 	"text/template"
-	"time"
-
-	"github.com/mpetavy/common"
 )
 
 type data struct {
@@ -25,6 +23,8 @@ var (
 )
 
 func init() {
+	common.Init("templater", "1.0.0", "2018", "GO code generator by template", "mpetavy", common.APACHE, "https://github.com/mpetavy/symlink", false, nil, nil, run, 0)
+
 	inputFile = flag.String("i", "", "The file to be parsed")
 	outputFile = flag.String("o", "", "The file to be generated")
 	searchReplace = flag.String("sr", "", "Search")
@@ -73,6 +73,5 @@ func run() error {
 func main() {
 	defer common.Cleanup()
 
-	common.New(&common.App{"templater", "1.0.0", "2018", "GO code generator by template", "mpetavy", common.APACHE, "https://github.com/mpetavy/symlink", false, nil, nil, run, time.Duration(0)}, nil)
-	common.Run()
+	common.Run(nil)
 }
