@@ -22,7 +22,7 @@ var (
 )
 
 func init() {
-	common.Init("templater", "1.0.0", "2018", "GO code generator by template", "mpetavy", common.APACHE, "https://github.com/mpetavy/symlink", false, nil, nil, run, 0)
+	common.Init("1.0.0", "2018", "GO code generator by template", "mpetavy", common.APACHE, false, nil, nil, run, 0)
 
 	inputFile = flag.String("i", "", "The file to be parsed")
 	outputFile = flag.String("o", "", "The file to be generated")
