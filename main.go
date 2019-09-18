@@ -5,7 +5,6 @@ import (
 	"flag"
 	"github.com/mpetavy/common"
 	"io/ioutil"
-	"os"
 	"strings"
 	"text/template"
 )
@@ -64,7 +63,7 @@ func run() error {
 	}
 
 	if *outputFile != "" {
-		ioutil.WriteFile(common.CleanPath(*outputFile), []byte(code), os.ModePerm)
+		ioutil.WriteFile(common.CleanPath(*outputFile), []byte(code), common.FileFileMode)
 	}
 
 	return nil
