@@ -63,7 +63,7 @@ func run() error {
 	}
 
 	if *outputFile != "" {
-		ioutil.WriteFile(common.CleanPath(*outputFile), []byte(code), common.FileFileMode)
+		ioutil.WriteFile(common.CleanPath(*outputFile), []byte(code), common.DefaultFileMode)
 	}
 
 	return nil
