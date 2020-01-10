@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"flag"
+	"fmt"
 	"github.com/mpetavy/common"
 	"io/ioutil"
 	"strings"
@@ -22,7 +23,7 @@ var (
 )
 
 func init() {
-	common.Init("1.0.0", "2018", "GO code generator by template", "mpetavy", common.APACHE, false, nil, nil, run, 0)
+	common.Init("1.0.0", "2018", "GO code generator by template", "mpetavy", fmt.Sprintf("https://github.com/mpetavy/%s", common.Title()), common.APACHE, false, nil, nil, run, 0)
 
 	inputFile = flag.String("i", "", "The file to be parsed")
 	outputFile = flag.String("o", "", "The file to be generated")
