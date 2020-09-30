@@ -23,7 +23,7 @@ var (
 )
 
 func init() {
-	common.Init(false, "1.0.0", "2018", "GO code generator by template", "mpetavy", fmt.Sprintf("https://github.com/mpetavy/%s", common.Title()), common.APACHE, nil, nil, run, 0)
+	common.Init(false, "1.0.0", "", "2018", "GO code generator by template", "mpetavy", fmt.Sprintf("https://github.com/mpetavy/%s", common.Title()), common.APACHE, nil, nil, run, 0)
 
 	inputFile = flag.String("i", "", "The file to be parsed")
 	outputFile = flag.String("o", "", "The file to be generated")
@@ -64,7 +64,10 @@ func run() error {
 	}
 
 	if *outputFile != "" {
-		ioutil.WriteFile(common.CleanPath(*outputFile), []byte(code), common.DefaultFileMode)
+		err := ioutil.WriteFile(common.CleanPath(*outputFile), []byte(code), common.DefaultFileMode)
+		if common.Error(err) {
+			return err
+		}
 	}
 
 	return nil
