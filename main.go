@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/mpetavy/common"
-	"io/ioutil"
+	"os"
 	"strings"
 	"text/template"
 )
@@ -33,7 +33,7 @@ func init() {
 }
 
 func run() error {
-	b, err := ioutil.ReadFile(common.CleanPath(*inputFile))
+	b, err := os.ReadFile(common.CleanPath(*inputFile))
 	if err != nil {
 		return err
 	}
@@ -64,7 +64,7 @@ func run() error {
 	}
 
 	if *outputFile != "" {
-		err := ioutil.WriteFile(common.CleanPath(*outputFile), []byte(code), common.DefaultFileMode)
+		err := os.WriteFile(common.CleanPath(*outputFile), []byte(code), common.DefaultFileMode)
 		if common.Error(err) {
 			return err
 		}
